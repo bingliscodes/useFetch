@@ -1,12 +1,18 @@
 import useFetch from "../hooks/useFetch.js";
 
+const NUM_SECONDS = 5;
+
 export default function userListWithFetch() {
   const cacheKey = "userList";
   const {
     data: users,
     isLoading,
     error,
-  } = useFetch("https://jsonplaceholder.typicode.com/users", cacheKey, 5);
+  } = useFetch(
+    "https://jsonplaceholder.typicode.com/users",
+    cacheKey,
+    NUM_SECONDS
+  );
 
   if (isLoading) return <p>Loading...</p>;
 
